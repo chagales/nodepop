@@ -18,6 +18,8 @@
   "homepage": "https://github.com/chagales/nodepop#readme",
   "dependencies": {
     "express-generator": "^4.15.0",
-    "mongose": "0.0.2-security"
+    "mongoose": "^4.11.12",
+    "mongose": "0.0.2-security",
+    "nodemon": "^1.12.1"
   }
 }
