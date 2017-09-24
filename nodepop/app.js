@@ -5,8 +5,8 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-var index = require('./routes/index');
-var users = require('./routes/users');
+//var index = require('./routes/index');
+//var users = require('./routes/users');
 
 var app = express();
 
@@ -16,14 +16,26 @@ app.set('view engine', 'ejs');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+
+//Conexion BBDD
+require('./lib/connectMongoose.js');
+require('./models/Anuncio');
+
+app.use(function(req,res,next){
+  console.log('Peticion');
+  next();
+});
+
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', index);
-app.use('/users', users);
+app.use('/',require('./routes/index'));
+app.use('/users', require('./routes/users'));
+app.use('/apiv1/anuncios',require('./routes/apiv1/anuncios'));
+app.use('/apiv1/tags',require('./routes/apiv1/tags'));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

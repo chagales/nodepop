@@ -9,7 +9,7 @@ const anuncioSchema = mongoose.Schema({
   precio: Number,
   foto: String,
   usuario: String,
-  tag: [String]
+  tags: [String]
 },{
   collection:'anuncios'
 });

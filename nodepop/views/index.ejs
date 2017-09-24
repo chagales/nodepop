@@ -3,9 +3,52 @@
   <head>
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <!-- Bootstrap core CSS -->
+    <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/css/1-col-portfolio.css" rel="stylesheet">
+
   </head>
   <body>
+
     <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+
+
+  <!--<% include navfilter %>-->
+    <input type="text" id="articulo" placeholder="Buscar Articulo">
+    <button id="bfiltrar" onclick="filtrar()">BUSCAR</button>
+
+    <script>
+    var a = document.getElementById('articulo');
+    function filtrar(){
+      window.location.replace("./?articulo="+a.value);
+    };
+    </script>
+
+
+
+
+    <% lista.forEach(function(anuncio) { %>
+      <h2><%= anuncio.articulo %></h2>
+      <img class="img-fluid rounded mb-0 mb-md-0 col-3" src="<%= anuncio.foto %>"></img>
+
+      <% if (anuncio.venta) { %>
+        <p>Venta</p>
+      <% } else { %>
+        <p>Busco</p>
+      <% } %>
+      <p><%= anuncio.precio %>€</p>
+      <p><%= anuncio.tags %></p>
+
+
+    <% }) %>
+
+
+  <% include footer %>
+
+
+
+
   </body>
 </html>

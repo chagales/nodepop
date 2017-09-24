@@ -1,17 +1,17 @@
 {
   "anuncios":[
     {
-      "nombre": "Iphone 9",
+      "articulo": "Iphone 9",
       "venta": true,
       "precio": 1110.15,
-      "foto": "../public/images/iphone9.jpg",
+      "foto": "http://localhost:3000/images/iphone9.jpg",
       "tags":["lifestyle","mobile"]
     },
     {
-      "nombre": "Soporte coche Iphone",
+      "articulo": "Soporte coche Iphone",
       "venta": false,
       "precio": 50.0,
-      "foto": "../public/images/soporte_iphone.jpg",
+      "foto": "http://localhost:3000/images/soporte_iphone.jpg",
       "tags": ["motor", "mobile"]
     }
   ]
